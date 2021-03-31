@@ -1,26 +1,14 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-
 <head>
-	<meta charset="UTF-8">
-	<title th:text="${titulo}"></title>
+<meta charset="UTF-8">
+<title th:text="${titulo}"></title>
 </head>
-
 <body>
 	<h3 th:text="${titulo}"></h3>
 
 	<form th:action="@{/form}" th:object="${usuario}" method="post">
 
-		<div>
-			<label for="pais">Pais</label>
-			<div>
-				<select id="pais" th:field="*{pais}"> 
-				<option value="">-- seleccionar --</option>
-					<option th:each="pais: ${paises}" th:text="${pais}" th:value="${pais}"></option>
-				</select>
-			</div>
-			<div th:if="${#fields.hasErrors('pais')}" th:errors="*{pais}"></div>
-		</div>
 		<div>
 			<label for="identificador">Identificador</label>
 			<div>
@@ -62,20 +50,6 @@
 				<input type="text" id="email" th:field="*{email}">
 			</div>
 			<div th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></div>
-		</div>
-		<div>
-			<label for="cuenta">Cuenta</label>
-			<div>
-				<input type="number" id="cuenta" th:field="*{cuenta}">
-			</div>
-			<div th:if="${#fields.hasErrors('cuenta')}" th:errors="*{cuenta}"></div>
-		</div>
-		<div>
-			<label for="fechaNacimiento">Fecha Nacimiento</label>
-			<div>
-				<input type="date" id="fechaNacimiento" th:field="*{fechaNacimiento}" placeholder="yyyy-MM-dd">
-			</div>
-			<div th:if="${#fields.hasErrors('fechaNacimiento')}" th:errors="*{fechaNacimiento}"></div>
 		</div>
 
 		<div>
